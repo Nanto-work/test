@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<body class="main">
+		<form action="#" class="wrapper">
+			<p>number: <input id="num" type="number" pattern="[0-9]{5}">
+			</p>
+			<p>
+				<input id="calc" type="submit" value="Calculate">
+			</p>
+			<p>result: <span id="res"></span>
+			</p>
+		</form>
+		<script>
+let num = document.getElementById('num'),
+	calc = document.getElementById('calc'),
+	res = document.getElementById('res');
+
+calc.onclick = function() {
+	let numStr = num.value + '';
+	
+	if (numStr.length !== 5) {
+		alert('Ошибка. Число должно быть пятизначным.')
+	} else {
+		let numArr = numStr.split('');
+		let sum = 0;
+		
+		for (let i = 0; i < numArr.length; i++) {
+			sum += Number(numArr[i]);
+		}
+		
+		res.innerHTML = sum;
+	}
+
+	return false;
+};
+		</script>
+	</body>
+</html>
